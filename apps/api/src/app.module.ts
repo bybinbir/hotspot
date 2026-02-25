@@ -12,6 +12,7 @@ import { RadiusModule } from './modules/radius/radius.module';
 import { PortalModule } from './modules/portal/portal.module';
 import { TemplatesModule } from './modules/templates/templates.module';
 import { SmsModule } from './modules/sms/sms.module';
+import { WalledGardenModule } from './modules/walled-garden/walled-garden.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { SmsModule } from './modules/sms/sms.module';
     PortalModule,
     TemplatesModule,
     SmsModule,
+    WalledGardenModule,
   ],
 })
 export class AppModule implements NestModule {

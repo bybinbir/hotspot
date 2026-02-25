@@ -17,6 +17,7 @@ import {
   Wifi,
   Building2,
   FileStack,
+  ShieldCheck,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -24,6 +25,7 @@ import { usePathname } from 'next/navigation';
 const navItems = [
   { key: 'dashboard', href: '', icon: LayoutDashboard },
   { key: 'devices', href: '/devices', icon: Router },
+  { key: 'walledGarden', href: '/walled-garden', icon: ShieldCheck },
   { key: 'subscribers', href: '/subscribers', icon: Users },
   { key: 'packages', href: '/packages', icon: Package },
   { key: 'vouchers', href: '/vouchers', icon: Ticket },

@@ -308,6 +308,39 @@ export function useDeleteSpeedPackageTemplate() {
   });
 }
 
+// ==================== Walled Garden ====================
+
+export function useWalledGardenDevices(page = 1, limit = 20) {
+  return useQuery({
+    queryKey: ['walled-garden', page, limit],
+    queryFn: () => apiClient.get('/v1/walled-garden', { params: { page, limit } }).then(r => r.data),
+  });
+}
+
+export function useCreateWalledGardenDevice() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (data: any) => apiClient.post('/v1/walled-garden', data).then(r => r.data),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['walled-garden'] }),
+  });
+}
+
+export function useUpdateWalledGardenDevice() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...data }: any) => apiClient.put(`/v1/walled-garden/${id}`, data).then(r => r.data),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['walled-garden'] }),
+  });
+}
+
+export function useDeleteWalledGardenDevice() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => apiClient.delete(`/v1/walled-garden/${id}`).then(r => r.data),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['walled-garden'] }),
+  });
+}
+
 // ==================== Portal Theme ====================
 
 export function usePortalTheme() {

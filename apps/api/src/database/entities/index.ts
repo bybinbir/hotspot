@@ -14,3 +14,4 @@ export { Radacct } from './radacct.entity';
 export { Radpostauth } from './radpostauth.entity';
 export { CustomerCountTemplate } from './customer-count-template.entity';
 export { SpeedPackageTemplate } from './speed-package-template.entity';
+export { WalledGardenDevice, WalledGardenDeviceType } from './walled-garden-device.entity';
