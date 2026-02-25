@@ -1,0 +1,23 @@
+<h2>{{t.selectPackage}}</h2>
+<p class="subtitle">{{t.selectPackageMessage}}</p>
+
+<form method="POST" action="/portal/select-package">
+  <input type="hidden" name="mac" value="{{mac}}">
+  <input type="hidden" name="dst" value="{{dst}}">
+
+  {{#each packages}}
+  <label class="package-option">
+    <input type="radio" name="packageId" value="{{this.id}}" {{#if @first}}checked{{/if}}>
+    <div class="package-card">
+      <h3>{{this.name}}</h3>
+      <p class="speed">{{this.downloadSpeedDisplay}} / {{this.uploadSpeedDisplay}}</p>
+      {{#if this.timeLimitDisplay}}
+      <p class="speed">{{this.timeLimitDisplay}}</p>
+      {{/if}}
+      <p class="price">{{#if this.isFree}}{{../t.free}}{{else}}{{this.price}} {{this.currency}}{{/if}}</p>
+    </div>
+  </label>
+  {{/each}}
+
+  <button type="submit" class="btn-primary">{{t.continue}}</button>
+</form>

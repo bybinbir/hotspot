@@ -1,0 +1,26 @@
+# Juniper Networks vendor-specific attributes (ERX/E-series)
+VENDOR          Juniper         4874
+
+BEGIN-VENDOR    Juniper
+
+ATTRIBUTE       ERX-Virtual-Router-Name         1       string
+ATTRIBUTE       ERX-Address-Pool-Name           2       string
+ATTRIBUTE       ERX-Local-Loopback-Interface    3       string
+ATTRIBUTE       ERX-Primary-Dns                 4       ipaddr
+ATTRIBUTE       ERX-Secondary-Dns               5       ipaddr
+ATTRIBUTE       ERX-Primary-Wins                6       ipaddr
+ATTRIBUTE       ERX-Secondary-Wins              7       ipaddr
+ATTRIBUTE       ERX-Tunnel-Virtual-Router       8       string
+ATTRIBUTE       ERX-Tunnel-Password             9       string
+ATTRIBUTE       ERX-Ingress-Policy-Name         10      string
+ATTRIBUTE       ERX-Egress-Policy-Name          11      string
+ATTRIBUTE       ERX-Ingress-Statistics          12      integer
+ATTRIBUTE       ERX-Egress-Statistics           13      integer
+ATTRIBUTE       ERX-Atm-Service-Category        14      integer
+ATTRIBUTE       ERX-Atm-PCR                     15      integer
+ATTRIBUTE       ERX-Atm-SCR                     16      integer
+ATTRIBUTE       ERX-Atm-MBS                     17      integer
+ATTRIBUTE       ERX-Cli-Initial-Access-Level    18      string
+ATTRIBUTE       ERX-Client-Profile-Name         19      string
+
+END-VENDOR      Juniper

@@ -1,0 +1,73 @@
+<h1>{{theme.welcomeTitle}}</h1>
+<p class="subtitle">{{theme.welcomeMessage}}</p>
+
+{{#if error}}
+<div class="error" role="alert">{{error}}</div>
+{{/if}}
+
+{{#if hasUsernamePassword}}
+<form method="POST" action="/portal/authenticate">
+  <input type="hidden" name="dst" value="{{dst}}">
+  <input type="hidden" name="mac" value="{{mac}}">
+  <input type="hidden" name="nasip" value="{{nasip}}">
+
+  <div class="form-group">
+    <label for="username">{{t.username}}</label>
+    <input type="text" id="username" name="username" required
+           autocomplete="username" autocapitalize="none"
+           placeholder="{{t.usernamePlaceholder}}">
+  </div>
+  <div class="form-group">
+    <label for="password">{{t.password}}</label>
+    <input type="password" id="password" name="password" required
+           placeholder="{{t.passwordPlaceholder}}">
+  </div>
+  <button type="submit" class="btn-primary">{{t.connect}}</button>
+</form>
+{{/if}}
+
+{{#if hasVoucher}}
+{{#if hasUsernamePassword}}
+<div class="divider">{{t.or}}</div>
+{{/if}}
+
+<form method="POST" action="/portal/voucher-auth">
+  <input type="hidden" name="dst" value="{{dst}}">
+  <input type="hidden" name="mac" value="{{mac}}">
+  <input type="hidden" name="nasip" value="{{nasip}}">
+
+  <div class="form-group">
+    <label for="voucher_code">{{t.voucherCode}}</label>
+    <input type="text" id="voucher_code" name="code" required
+           autocomplete="off" autocapitalize="characters"
+           placeholder="{{t.voucherPlaceholder}}">
+  </div>
+  <button type="submit" class="btn-primary">{{t.redeem}}</button>
+</form>
+{{/if}}
+
+{{#if hasSms}}
+{{#if (or hasUsernamePassword hasVoucher)}}
+<div class="divider">{{t.or}}</div>
+{{/if}}
+
+<form method="POST" action="/portal/sms-request">
+  <input type="hidden" name="dst" value="{{dst}}">
+  <input type="hidden" name="mac" value="{{mac}}">
+  <input type="hidden" name="nasip" value="{{nasip}}">
+
+  <div class="form-group">
+    <label for="phone">{{t.phone}}</label>
+    <input type="tel" id="phone" name="phone" required
+           placeholder="{{t.phonePlaceholder}}">
+  </div>
+  <button type="submit" class="btn-primary">{{t.sendCode}}</button>
+</form>
+{{/if}}
+
+{{#if theme.termsAndConditions}}
+<details class="terms">
+  <summary>{{t.termsTitle}}</summary>
+  <div class="terms-content">{{theme.termsAndConditions}}</div>
+</details>
+{{/if}}

@@ -1,0 +1,43 @@
+<h2>{{t.sessionActive}}</h2>
+
+<div class="status-grid">
+  <div class="status-item">
+    <span class="label">{{t.timeRemaining}}</span>
+    <span class="value" id="time-remaining">{{timeRemainingDisplay}}</span>
+  </div>
+  <div class="status-item">
+    <span class="label">{{t.dataUsed}}</span>
+    <span class="value">{{dataUsedDisplay}}</span>
+  </div>
+  <div class="status-item">
+    <span class="label">{{t.package}}</span>
+    <span class="value">{{packageName}}</span>
+  </div>
+  <div class="status-item">
+    <span class="label">{{t.ipAddress}}</span>
+    <span class="value">{{ipAddress}}</span>
+  </div>
+</div>
+
+<form method="POST" action="/portal/logout">
+  <input type="hidden" name="mac" value="{{mac}}">
+  <button type="submit" class="btn-secondary">{{t.disconnect}}</button>
+</form>
+
+{{#if timeRemainingSeconds}}
+<script>
+(function() {
+  var r = {{timeRemainingSeconds}};
+  var el = document.getElementById('time-remaining');
+  if (!el || !r) return;
+  setInterval(function() {
+    r--;
+    if (r <= 0) { location.reload(); return; }
+    var h = Math.floor(r / 3600);
+    var m = Math.floor((r % 3600) / 60);
+    var s = r % 60;
+    el.textContent = (h > 0 ? h + 'sa ' : '') + m + 'dk ' + s + 'sn';
+  }, 1000);
+})();
+</script>
+{{/if}}

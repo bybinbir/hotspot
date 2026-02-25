@@ -1,0 +1,15 @@
+<div class="success">{{t.authSuccess}}</div>
+
+<h2>{{t.connected}}</h2>
+<p class="subtitle">{{t.connectedMessage}}</p>
+
+{{#if redirectUrl}}
+<p class="subtitle">
+  <a href="{{redirectUrl}}" style="color: {{theme.primaryColor}}">{{t.continueToSite}}</a>
+</p>
+<script>
+  setTimeout(function() { window.location.href = '{{redirectUrl}}'; }, 3000);
+</script>
+{{/if}}
+
+<a href="/portal/status/{{mac}}" class="btn-secondary">{{t.viewStatus}}</a>

@@ -1,0 +1,17 @@
+# Cisco vendor-specific attributes (subset for hotspot use)
+VENDOR          Cisco           9
+
+BEGIN-VENDOR    Cisco
+
+ATTRIBUTE       Cisco-AVPair                    1       string
+ATTRIBUTE       Cisco-NAS-Port                  2       string
+ATTRIBUTE       Cisco-Disconnect-Cause          195     integer
+ATTRIBUTE       Cisco-Redirect-URL              200     string
+ATTRIBUTE       Cisco-Account-Info              250     string
+ATTRIBUTE       Cisco-Service-Info              251     string
+ATTRIBUTE       Cisco-Command-Code              252     string
+ATTRIBUTE       Cisco-Control-Protocols         253     integer
+ATTRIBUTE       Cisco-SSG-Account-Info          1       string
+ATTRIBUTE       Cisco-SSG-Service-Info          2       string
+
+END-VENDOR      Cisco
